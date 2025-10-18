@@ -94,6 +94,13 @@
       .event-card .event-content { padding: 25px; }
       .event-category { background: var(--brand-orange); color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block; margin-bottom: 15px; }
 
+  /* Events: equal-height cards */
+  .events .row { align-items: stretch; }
+  .events .col-lg-4.col-md-6 { display: flex; }
+  .events .event-card { display: flex; flex-direction: column; height: 100%; width: 100%; }
+  .events .event-card .event-content { display: flex; flex-direction: column; flex: 1 1 auto; }
+  .events .event-card .event-content .orange-button { margin-top: auto; align-self: flex-start; }
+
   /* Program Cards equal height */
   .events_item { display: flex; flex-direction: column; height: 100%; background: #fff; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; }
   .events_item .down-content { margin-top: auto; padding-bottom: 16px; }
@@ -414,14 +421,27 @@
       <div class="container">
         <div class="row"><div class="col-lg-12 text-center"><div class="section-heading"><h6>Schedule</h6><h2>Upcoming GenAI‑ERA Events</h2></div></div></div>
         <div class="row">
+          <!-- Chronological: 08 Mar 2025 -->
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-left" style="--reveal-delay:.0s"><img src="assets/images/event-01.jpg" alt="AI Literacy Workshop" /><div class="event-content"><span class="event-category">AI Literacy Workshop</span><h4>A Call For Forum Discussion: GenAI in African Classrooms</h4><p class="mb-2"><strong>Date:</strong> 27 April 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 3 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+            <div class="event-card reveal-left h-100" style="--reveal-delay:.0s"><img src="assets/images/event-02.jpg" alt="Digital Pedagogy Seminar" /><div class="event-content"><span class="event-category">Digital Pedagogy Seminar</span><h4>Effective Use of Artificial Intelligence in Education</h4><p class="mb-2"><strong>Date:</strong> 08 Mar 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+          </div>
+          <!-- Chronological: 12 Apr 2025 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="event-card reveal-up h-100" style="--reveal-delay:.08s"><img src="assets/images/event-03.jpg" alt="Research & Innovation Forum" /><div class="event-content"><span class="event-category">Research &amp; Innovation Forum</span><h4>AI in Educational Research</h4><p class="mb-2"><strong>Date:</strong> 12 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 4 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+          </div>
+          <!-- Chronological: 27 Apr 2025 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="event-card reveal-right h-100" style="--reveal-delay:.16s"><img src="assets/images/event-01.jpg" alt="AI Literacy Workshop" /><div class="event-content"><span class="event-category">AI Literacy Workshop</span><h4>A Call For Forum Discussion: GenAI in African Classrooms</h4><p class="mb-2"><strong>Date:</strong> 27 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 3 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+          </div>
+          <!-- TBA: place last -->
+          <div class="col-lg-4 col-md-6">
+            <div class="event-card reveal-left h-100" style="--reveal-delay:.24s"><img src="assets/images/event-04.jpg" alt="Community Meetup" /><div class="event-content"><span class="event-category">Community Meetup</span><h4>GenAI Club Launch &amp; Networking</h4><p class="text-muted">Hands-on demos, lightning talks, and regional club onboarding for educators and students.</p><p class="mb-2"><strong>Date:</strong> TBA &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-up" style="--reveal-delay:.08s"><img src="assets/images/event-02.jpg" alt="Digital Pedagogy Seminar" /><div class="event-content"><span class="event-category">Digital Pedagogy Seminar</span><h4>Effective Use of Artificial Intelligence in Education</h4><p class="mb-2"><strong>Date:</strong> 08 Mar 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+            <div class="event-card reveal-up h-100" style="--reveal-delay:.32s"><img src="assets/images/event-05.jpg" alt="Upcoming Event" /><div class="event-content"><span class="event-category">Upcoming Event</span><h4>GenAI Educator Roundtable</h4><p class="text-muted">Panel conversation and Q&amp;A focused on best practices, challenges, and opportunities with GenAI in classrooms.</p><p class="mb-2"><strong>Date:</strong> TBA &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="event-card reveal-right" style="--reveal-delay:.16s"><img src="assets/images/event-03.jpg" alt="Research & Innovation Forum" /><div class="event-content"><span class="event-category">Research &amp; Innovation Forum</span><h4>AI in Educational Research</h4><p class="mb-2"><strong>Date:</strong> 12 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 4 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+            <div class="event-card reveal-right h-100" style="--reveal-delay:.40s"><img src="assets/images/event-06.jpg" alt="Upcoming Event" /><div class="event-content"><span class="event-category">Upcoming Event</span><h4>AI Policy &amp; Ethics Forum</h4><p class="text-muted">Community discussion on responsible use, policy guidelines, and safeguarding in AI-enabled learning.</p><p class="mb-2"><strong>Date:</strong> TBA &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
           </div>
         </div>
       </div>
@@ -440,27 +460,36 @@
               <div class="special-offer"><span class="offer">Join<br /><em>Free</em></span><h6>Open Enrollment: <em>Contact Now</em></h6><h4>Email: genaiera1@gmail.com /+17062067852/+233248649357</h4><a href="#"><i class="fa fa-angle-right"></i></a></div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="contact-us-content">
-              <form id="contact-form" action="" method="post">
-                <div class="row">
-                  <div class="col-lg-12"><fieldset><input type="text" name="name" id="name" placeholder="Your Name..." autocomplete="on" required /></fieldset></div>
-                  <div class="col-lg-12"><fieldset><input type="email" name="email" id="email" placeholder="Your E‑mail..." required /></fieldset></div>
-                  <div class="col-lg-12"><fieldset><textarea name="message" id="message" placeholder="Your Message"></textarea></fieldset></div>
-                  <div class="col-lg-12"><fieldset><button type="submit" id="form-submit" class="orange-button">Send Message Now</button></fieldset></div>
-                </div>
-              </form>
+          <div class="row">
+            <!-- Chronological: 08 Mar 2025 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="event-card reveal-left h-100" style="--reveal-delay:.0s"><img src="assets/images/event-02.jpg" alt="Digital Pedagogy Seminar" /><div class="event-content"><span class="event-category">Digital Pedagogy Seminar</span><h4>Effective Use of Artificial Intelligence in Education</h4><p class="mb-2"><strong>Date:</strong> 08 Mar 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+            </div>
+            <!-- Chronological: 12 Apr 2025 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="event-card reveal-up h-100" style="--reveal-delay:.08s"><img src="assets/images/event-03.jpg" alt="Research & Innovation Forum" /><div class="event-content"><span class="event-category">Research &amp; Innovation Forum</span><h4>AI in Educational Research</h4><p class="mb-2"><strong>Date:</strong> 12 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 4 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+            </div>
+            <!-- Chronological: 27 Apr 2025 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="event-card reveal-right h-100" style="--reveal-delay:.16s"><img src="assets/images/event-01.jpg" alt="AI Literacy Workshop" /><div class="event-content"><span class="event-category">AI Literacy Workshop</span><h4>A Call For Forum Discussion: GenAI in African Classrooms</h4><p class="mb-2"><strong>Date:</strong> 27 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 3 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+            </div>
+          </div>
+    <footer>
+      <div class="container"><div class="col-lg-12"><p>Copyright © 2025 GenAI‑ERA. All rights reserved. &nbsp;&nbsp;&nbsp; Design: <a href="https://templatemo.com" rel="nofollow" target="_blank">TemplateMo</a> Distribution: <a href="https://themewagon.com" rel="nofollow" target="_blank">ThemeWagon</a></p></div></div>
+    </footer>
+
+      <!-- ***** Past Events Section Start ***** -->
+      <div class="section events" id="past-events">
+        <div class="container">
+          <div class="row"><div class="col-lg-12 text-center"><div class="section-heading"><h6>Past</h6><h2>Past Events</h2></div></div></div>
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <div class="event-card reveal-left h-100" style="--reveal-delay:.0s"><img src="assets/images/event-04.jpg" alt="Community Meetup" /><div class="event-content"><span class="event-category">Community Meetup</span><h4>GenAI Club Launch &amp; Networking</h4><p class="text-muted">Hands-on demos, lightning talks, and regional club onboarding for educators and students.</p><p class="mb-2"><strong>Date:</strong> 19 Sep 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Recap</a></div></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- ***** Contact Us Section End ***** -->
-
-    <!-- ***** Footer Section Start ***** -->
-    <footer>
-      <div class="container"><div class="col-lg-12"><p>Copyright © 2025 GenAI‑ERA. All rights reserved. &nbsp;&nbsp;&nbsp; Design: <a href="https://templatemo.com" rel="nofollow" target="_blank">TemplateMo</a> Distribution: <a href="https://themewagon.com" rel="nofollow" target="_blank">ThemeWagon</a></p></div></div>
-    </footer>
+      <!-- ***** Past Events Section End ***** -->
 
   <!-- Scripts: fixed vendor paths and consolidated app logic -->
   <script src="vendor/jquerry/jquery.min.js"></script>
