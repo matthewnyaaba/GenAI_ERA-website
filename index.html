@@ -7,15 +7,15 @@
 
     <title>GenAI‑ERA – Generative AI for Education &amp; Research in Africa</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS (fixed path) -->
+  <link href="vendor/boostrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css" />
     <link rel="stylesheet" href="assets/css/templatemo-scholar.css" />
     <link rel="stylesheet" href="assets/css/owl.css" />
     <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <!-- Removed unused Swiper CSS -->
 
     <!-- Professional GenAI‑ERA Brand Styles -->
     <style>
@@ -26,16 +26,38 @@
         --brand-dark-gray: #343a40;
         --brand-white: #ffffff;
       }
-      body { font-family: 'Poppins', sans-serif; line-height: 1.6; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; line-height: 1.6; padding-top: 72px; }
 
       /* Header & Navigation */
-      .header-area.header-sticky, .header-area.header-sticky .main-nav { background-color: var(--brand-navy) !important; }
-      .header-area.header-sticky .nav ul li a { color: #fff !important; }
-      .header-area.header-sticky .nav ul li a:hover, .header-area.header-sticky .nav ul li a.active { color: var(--brand-orange) !important; }
-      .header-area.header-sticky .logo h1 { color: #fff !important; font-weight: 700; }
+  .navbar-brand { font-weight: 800; letter-spacing: 0.5px; }
+  .navbar-dark.bg-dark { background-color: var(--brand-navy) !important; }
+  .navbar-dark .navbar-nav .nav-link { color: #fff; font-weight: 500; }
+  .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active { color: var(--brand-orange); }
+  /* Navbar brand with logo */
+  .navbar-brand { display: inline-flex; align-items: center; gap: 10px; }
+  .navbar-brand .logo-img { height: 34px; width: auto; display: inline-block; border-radius: 6px; object-fit: contain; }
+  @media (max-width: 576px) { .navbar-brand .logo-img { height: 30px; } }
 
       /* Main Banner */
-      .main-banner .item-1, .main-banner .item-2, .main-banner .item-3 { background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-orange) 100%) !important; color: #fff !important; }
+  .main-banner .item-1, .main-banner .item-2, .main-banner .item-3 { background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-orange) 100%) !important; color: #fff !important; }
+  .main-banner .hero-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+  .main-banner .hero-block { flex: 0 0 100vw; min-height: 60vh; display: flex; align-items: center; padding: 64px 0; scroll-snap-align: start; }
+  .main-banner .header-text h2 { font-weight: 800; }
+  .main-banner .hero-block { position: relative; }
+  /* Readability overlays (lightened) */
+  .main-banner .hero-block::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(13,59,102,0.35) 0%, rgba(247,147,30,0.20) 100%); }
+  /* Removed heavy scrim; rely on subtle gradient + text styling */
+  .main-banner .header-text { position: relative; z-index: 1; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.25); }
+  .main-banner .header-text .category { display: inline-block; font-weight: 700; letter-spacing: .5px; background: rgba(255,255,255,0.18); color: #fff; padding: 4px 10px; border-radius: 999px; }
+  /* On small screens, give the text a gentle backdrop for readability */
+  @media (max-width: 576px) { .main-banner .header-text { background: rgba(0,0,0,0.18); border-radius: 12px; padding: 12px; } }
+  .hero-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(0,0,0,0.35); color: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background .2s ease, transform .2s ease; }
+  .hero-arrow:hover { background: rgba(0,0,0,0.5); transform: translateY(-50%) scale(1.05); }
+  .hero-arrow.prev { left: 16px; }
+  .hero-arrow.next { right: 16px; }
+  .hero-arrow.disabled, .hero-arrow:disabled { opacity: 0.4; pointer-events: none; }
+  @media (max-width: 576px) { .hero-arrow { width: 40px; height: 40px; } }
       .main-button a, .main-button a:hover, .orange-button { background-color: var(--brand-orange) !important; border-color: var(--brand-orange) !important; }
 
       /* Section Headings */
@@ -72,6 +94,11 @@
       .event-card .event-content { padding: 25px; }
       .event-category { background: var(--brand-orange); color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block; margin-bottom: 15px; }
 
+  /* Program Cards equal height */
+  .events_item { display: flex; flex-direction: column; height: 100%; background: #fff; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; }
+  .events_item .down-content { margin-top: auto; padding-bottom: 16px; }
+  .events_item .thumb img { width: 100%; height: 200px; object-fit: cover; }
+
       /* Fun Facts */
       .fun-facts { background: linear-gradient(135deg, var(--brand-navy), var(--brand-orange)); color: white; }
       .fun-facts .timer { color: white !important; font-size: 48px !important; font-weight: 700; }
@@ -88,12 +115,63 @@
       .event_filter a { padding: 10px 25px; background: var(--brand-light-gray); color: var(--brand-dark-gray); text-decoration: none; border-radius: 25px; font-weight: 500; transition: all 0.3s ease; }
       .event_filter a.is_active, .event_filter a:hover { background: var(--brand-orange); color: white; }
 
+      /* Programs (Core Services) equal-height cards */
+      .programs-section {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 24px;
+        padding: 40px 0;
+      }
+      .program-card {
+        flex: 1 1 320px;
+        background-color: #f9f9ff;
+        border-radius: 16px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+        min-height: 380px;
+      }
+      .program-card:hover { transform: translateY(-6px); }
+      .program-card .icon { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 14px; background: linear-gradient(135deg, var(--brand-orange), #ff9f4d); box-shadow: 0 6px 16px rgba(0,0,0,0.08); margin-bottom: 14px; }
+      .program-card .icon img { width: 36px; height: 36px; object-fit: contain; filter: brightness(0) invert(1); }
+      .program-card h4 { color: var(--brand-navy); font-weight: 700; margin: 8px 0 10px; }
+      .program-card p { color: #4b5563; margin-bottom: 16px; }
+      .program-card .discover-btn, .program-card .main-button a {
+        margin-top: auto;
+        align-self: flex-start;
+      }
+      @media (max-width: 576px) { .program-card { min-height: 340px; } }
+
       /* Responsive */
       @media (max-width: 768px) {
         .professional-tabs .nav-link { padding: 10px 15px; font-size: 14px; }
         .team-member-card img { width: 100px; height: 100px; }
         .board-member .team-member-card img { width: 120px; height: 120px; }
       }
+  /* Preloader fallback */
+  .js-preloader.loaded { opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility 0s linear .3s; }
+
+      /* Reveal-on-scroll animations */
+      .reveal-up, .reveal-left, .reveal-right { opacity: 0; will-change: transform, opacity; transition: opacity .6s ease, transform .6s ease; transition-delay: var(--reveal-delay, 0s); }
+      .reveal-up { transform: translateY(24px); }
+      .reveal-left { transform: translateX(-28px); }
+      .reveal-right { transform: translateX(28px); }
+      .in-view { opacity: 1 !important; transform: none !important; }
+
+      /* Respect reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .reveal-up, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+      }
+
+      /* High-contrast text helpers */
+      .text-section h1, .text-section h2, .text-section h3,
+      .text-section p, .text-section a { color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
+      .text-section a.btn { text-shadow: none; }
     </style>
   </head>
 
@@ -107,84 +185,94 @@
     </div>
     <!-- ***** Preloader End ***** -->
 
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="main-nav">
-              <a href="#top" class="logo"><h1>GenAI‑ERA</h1></a>
-              <div class="search-input">
-                <form id="search" action="#">
-                  <input type="text" placeholder="Type Something" id="searchText" name="searchKeyword" />
-                  <i class="fa fa-search"></i>
-                </form>
-              </div>
-              <ul class="nav">
-                <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                <li class="scroll-to-section"><a href="#vision">Vision</a></li>
-                <li class="scroll-to-section"><a href="#programs">Programs</a></li>
-                <li class="scroll-to-section"><a href="#team">Leadership</a></li>
-                <li class="scroll-to-section"><a href="#tools">AI Tools</a></li>
-                <li class="scroll-to-section"><a href="#events">Events</a></li>
-                <li class="scroll-to-section"><a href="#contact">Join Us</a></li>
-              </ul>
-              <a class="menu-trigger"><span>Menu</span></a>
-            </nav>
+    <!-- ***** Header / Navbar ***** -->
+    <header class="header-area">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Main navigation">
+        <div class="container">
+          <a class="navbar-brand" href="#top" aria-label="GenAI‑ERA home">
+            <img class="logo-img" src="assets/images/logo.png" alt="GenAI‑ERA logo" loading="eager" decoding="async" />
+            <span class="brand-text">GenAI‑ERA</span>
+          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-bs-target="#navbarMain" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link active" href="#top">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#vision-block">Vision</a></li>
+              <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+              <li class="nav-item"><a class="nav-link" href="#team">Leadership</a></li>
+              <li class="nav-item"><a class="nav-link" href="#tools">AI Tools</a></li>
+              <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Join Us</a></li>
+            </ul>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
-    <!-- ***** Header Area End ***** -->
 
-    <!-- ***** Main Banner Start ***** -->
+    <!-- ***** Main Banner (Stacked sections, no carousel) ***** -->
     <div class="main-banner" id="top">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="owl-carousel owl-banner">
-              <!-- Slide 1: Vision -->
-              <div class="item item-1" id="vision">
-                <div class="header-text">
-                  <span class="category">Our Vision</span>
-                  <h2>Generative AI for Education and Research in Africa</h2>
-                  <p>At GenAI‑ERA Hub, we aim to extend Generative AI literacy and resources to educators at all levels—teacher educators, in‑service teachers, and pre‑service teachers. By incorporating global benchmarks such as the UNESCO AI Literacy Framework, OECD AI Principles, and local education standards, our vision is to promote the responsible use of AI in classrooms and empower academic communities throughout Africa.</p>
-                  <div class="buttons">
-                    <div class="main-button"><a href="#programs">Explore Programs</a></div>
-                    <div class="icon-button"><a href="#vision"><i class="fa fa-play"></i> Discover Our Vision</a></div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 2: Mission -->
-              <div class="item item-2">
-                <div class="header-text">
-                  <span class="category">Our Mission</span>
-                  <h2>Empowering Educators Through Free GenAI Clubs &amp; Hubs</h2>
-                  <p>Our mission is to establish accessible, free‑of‑charge GenAI clubs and hubs that offer hands‑on experience with AI tools and promote critical discussions on responsible AI applications. We focus on recruiting stakeholders from underrepresented regions—particularly in Global South—to foster global collaboration in innovative teaching, research, and assessment practices using GenAI.</p>
-                  <div class="buttons">
-                    <div class="main-button"><a href="#contact">Join Us Today</a></div>
-                    <div class="icon-button"><a href="#programs"><i class="fa fa-play"></i> See Our Initiatives</a></div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 3: Impact & Community -->
-              <div class="item item-3">
-                <div class="header-text">
-                  <span class="category">Our Impact</span>
-                  <h2>Connecting Global Educators &amp; Researchers</h2>
-                  <p>With bi‑weekly virtual and in‑person meetings, dynamic webinars, and collaborative research projects, GenAI‑ERA Hub bridges the digital divide by equipping educators with innovative tools, practical resources, and supportive cross‑cultural networking opportunities. Our initiatives empower international first‑generation students and established scholars alike to lead change within their communities.</p>
-                  <div class="buttons">
-                    <div class="main-button"><a href="#team">Meet Our Team</a></div>
-                    <div class="icon-button"><a href="#contact"><i class="fa fa-play"></i> Get Involved</a></div>
-                  </div>
+      <div class="hero-track">
+  <section class="hero-block item-1">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-8">
+              <div class="header-text text-section">
+                <span class="category">Our Vision</span>
+                <h2>Generative AI for Education and Research in Africa</h2>
+                <p>At GenAI‑ERA Hub, we aim to extend Generative AI literacy and resources to educators at all levels—teacher educators, in‑service teachers, and pre‑service teachers. By incorporating global benchmarks such as the UNESCO AI Literacy Framework, OECD AI Principles, and local education standards, our vision is to promote the responsible use of AI in classrooms and empower academic communities throughout Africa.</p>
+                <div class="buttons d-flex gap-2 flex-wrap">
+                  <a class="btn btn-warning" href="#programs">Explore Programs</a>
+                  <a class="btn btn-outline-light" href="#vision-block"><i class="fa fa-play"></i> Discover Our Vision</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <button type="button" class="hero-arrow prev" aria-label="Previous hero section"><i class="fa fa-angle-left" aria-hidden="true"></i><span class="visually-hidden">Previous</span></button>
+        <button type="button" class="hero-arrow next" aria-label="Next hero section"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="visually-hidden">Next</span></button>
+  </section>
+  <section class="hero-block item-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-8">
+              <div class="header-text text-section">
+                <span class="category">Our Mission</span>
+                <h2>Empowering Educators Through Free GenAI Clubs &amp; Hubs</h2>
+                <p>Our mission is to establish accessible, free‑of‑charge GenAI clubs and hubs that offer hands‑on experience with AI tools and promote critical discussions on responsible AI applications. We focus on recruiting stakeholders from underrepresented regions—particularly in Global South—to foster global collaboration in innovative teaching, research, and assessment practices using GenAI.</p>
+                <div class="buttons d-flex gap-2 flex-wrap">
+                  <a class="btn btn-warning" href="#contact">Join Us Today</a>
+                  <a class="btn btn-outline-light" href="#programs"><i class="fa fa-play"></i> See Our Initiatives</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="hero-arrow prev" aria-label="Previous hero section"><i class="fa fa-angle-left" aria-hidden="true"></i><span class="visually-hidden">Previous</span></button>
+        <button type="button" class="hero-arrow next" aria-label="Next hero section"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="visually-hidden">Next</span></button>
+  </section>
+  <section class="hero-block item-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-8">
+              <div class="header-text text-section">
+                <span class="category">Our Impact</span>
+                <h2>Connecting Global Educators &amp; Researchers</h2>
+                <p>With bi‑weekly virtual and in‑person meetings, dynamic webinars, and collaborative research projects, GenAI‑ERA Hub bridges the digital divide by equipping educators with innovative tools, practical resources, and supportive cross‑cultural networking opportunities. Our initiatives empower international first‑generation students and established scholars alike to lead change within their communities.</p>
+                <div class="buttons d-flex gap-2 flex-wrap">
+                  <a class="btn btn-warning" href="#team">Meet Our Team</a>
+                  <a class="btn btn-outline-light" href="#contact"><i class="fa fa-play"></i> Get Involved</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="hero-arrow prev" aria-label="Previous hero section"><i class="fa fa-angle-left" aria-hidden="true"></i><span class="visually-hidden">Previous</span></button>
+        <button type="button" class="hero-arrow next" aria-label="Next hero section"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="visually-hidden">Next</span></button>
+      </section>
       </div>
     </div>
-    <!-- ***** Main Banner End ***** -->
 
     <!-- ***** Services Section Start ***** -->
     <div class="services section" id="vision-block">
@@ -197,36 +285,24 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item">
-              <div class="icon"><img src="assets/images/service-01.png" alt="GenAI Literacy" /></div>
-              <div class="main-content">
-                <h4>GenAI Literacy Programs</h4>
-                <p>Comprehensive training programs designed to build AI literacy among educators, covering fundamentals, classroom applications, and ethics in education.</p>
-                <div class="main-button"><a href="#programs">Discover More</a></div>
-              </div>
-            </div>
+        <div class="programs-section">
+          <div class="program-card reveal-up" style="--reveal-delay:.0s">
+            <div class="icon"><img src="assets/images/service-01.png" alt="GenAI Literacy" /></div>
+            <h4>GenAI Literacy Programs</h4>
+            <p>Comprehensive training programs designed to build AI literacy among educators, covering fundamentals, classroom applications, and ethics in education.</p>
+            <a class="btn btn-warning discover-btn" href="#programs">Discover More</a>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item">
-              <div class="icon"><img src="assets/images/service-02.png" alt="Digital Pedagogy Tools" /></div>
-              <div class="main-content">
-                <h4>Digital Pedagogy Tools</h4>
-                <p>Access AI tools for lesson planning, content creation, assessment design, and personalized learning to enhance delivery and engagement.</p>
-                <div class="main-button"><a href="#tools">Discover More</a></div>
-              </div>
-            </div>
+          <div class="program-card reveal-up" style="--reveal-delay:.08s">
+            <div class="icon"><img src="assets/images/service-02.png" alt="Digital Pedagogy Tools" /></div>
+            <h4>Digital Pedagogy Tools</h4>
+            <p>Access AI tools for lesson planning, content creation, assessment design, and personalized learning to enhance delivery and engagement.</p>
+            <a class="btn btn-warning discover-btn" href="#tools">Discover More</a>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item">
-              <div class="icon"><img src="assets/images/service-03.png" alt="Research Collaboration" /></div>
-              <div class="main-content">
-                <h4>Research Collaboration</h4>
-                <p>Facilitating international partnerships, peer‑reviewed publications, and projects that advance AI in education across African contexts.</p>
-                <div class="main-button"><a href="#team">Discover More</a></div>
-              </div>
-            </div>
+          <div class="program-card reveal-up" style="--reveal-delay:.16s">
+            <div class="icon"><img src="assets/images/service-03.png" alt="Research Collaboration" /></div>
+            <h4>Research Collaboration</h4>
+            <p>Facilitating international partnerships, peer‑reviewed publications, and projects that advance AI in education across African contexts.</p>
+            <a class="btn btn-warning discover-btn" href="#team">Discover More</a>
           </div>
         </div>
       </div>
@@ -244,12 +320,12 @@
           <li><a href="#" data-filter=".research">Educational Research</a></li>
         </ul>
         <div class="row event_box">
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer literacy"><div class="events_item"><div class="thumb"><a href="#"><img src="assets/images/course-01.jpg" alt="AI Fundamentals Course" /></a><span class="category">GenAI Literacy</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Matthew Nyaaba</span><h4>Mastering Generative AI for Educators</h4></div></div></div>
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer pedagogy"><div class="events_item"><div class="thumb"><a href="#"><img src="assets/images/course-02.jpg" alt="Digital Pedagogy Course" /></a><span class="category">Digital Pedagogy</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Macharious Nabang</span><h4>Empowering Teaching Strategies with AI Tools</h4></div></div></div>
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer literacy research"><div class="events_item"><div class="thumb"><a href="#"><img src="assets/images/course-03.jpg" alt="Global Collaboration Course" /></a><span class="category">Global Collaboration</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Zack Kinzler</span><h4>Environmentally Friendly AI: Bridging AI and Learning</h4></div></div></div>
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer research"><div class="events_item"><div class="thumb"><a href="#"><img src="assets/images/course-04.jpg" alt="Educational Research Course" /></a><span class="category">Educational Research</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Dr. Patrick Kyeremeh</span><h4>AI‑Driven Educational Research Methodologies</h4></div></div></div>
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer pedagogy"><div class="events_item"><div class="thumb"><a href="#"><img src="assets/images/course-05.jpg" alt="Assessment Strategies Course" /></a><span class="category">Future Insights</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Matthew Nyaaba</span><h4>Innovative Assessment Strategies with AI</h4></div></div></div>
-          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer research"><div class="events_item"><div class="thumb"><a href="#"><img src="assets/images/course-06.jpg" alt="Teacher Empowerment Course" /></a><span class="category">Teacher Empowerment</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Bismark Nyaaba Akanzire</span><h4>Empowering Pre‑Service Teachers through AI</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer literacy"><div class="events_item reveal-up" style="--reveal-delay: .0s"><div class="thumb"><a href="#"><img src="assets/images/course-01.jpg" alt="AI Fundamentals Course" /></a><span class="category">GenAI Literacy</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Matthew Nyaaba</span><h4>Mastering Generative AI for Educators</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer pedagogy"><div class="events_item reveal-up" style="--reveal-delay: .08s"><div class="thumb"><a href="#"><img src="assets/images/course-02.jpg" alt="Digital Pedagogy Course" /></a><span class="category">Digital Pedagogy</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Macharious Nabang</span><h4>Empowering Teaching Strategies with AI Tools</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer literacy research"><div class="events_item reveal-up" style="--reveal-delay: .16s"><div class="thumb"><a href="#"><img src="assets/images/course-03.jpg" alt="Global Collaboration Course" /></a><span class="category">Global Collaboration</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Zack Kinzler</span><h4>Environmentally Friendly AI: Bridging AI and Learning</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer research"><div class="events_item reveal-up" style="--reveal-delay: .24s"><div class="thumb"><a href="#"><img src="assets/images/course-04.jpg" alt="Educational Research Course" /></a><span class="category">Educational Research</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Dr. Patrick Kyeremeh</span><h4>AI‑Driven Educational Research Methodologies</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer pedagogy"><div class="events_item reveal-up" style="--reveal-delay: .32s"><div class="thumb"><a href="#"><img src="assets/images/course-05.jpg" alt="Assessment Strategies Course" /></a><span class="category">Future Insights</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Matthew Nyaaba</span><h4>Innovative Assessment Strategies with AI</h4></div></div></div>
+          <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer research"><div class="events_item reveal-up" style="--reveal-delay: .40s"><div class="thumb"><a href="#"><img src="assets/images/course-06.jpg" alt="Teacher Empowerment Course" /></a><span class="category">Teacher Empowerment</span><span class="price"><h6><em>Free</em></h6></span></div><div class="down-content"><span class="author">Bismark Nyaaba Akanzire</span><h4>Empowering Pre‑Service Teachers through AI</h4></div></div></div>
         </div>
       </div>
     </section>
@@ -263,8 +339,8 @@
         <!-- Professional Navigation Tabs -->
         <div class="professional-tabs">
           <ul class="nav nav-tabs" id="teamTabs" role="tablist">
-            <li class="nav-item" role="presentation"><button class="nav-link active" id="board-tab" data-bs-toggle="tab" data-bs-target="#board" type="button" role="tab">Board of Directors</button></li>
-            <li class="nav-item" role="presentation"><button class="nav-link" id="executive-tab" data-bs-toggle="tab" data-bs-target="#executive" type="button" role="tab">Executive Members</button></li>
+            <li class="nav-item" role="presentation"><a class="nav-link active" id="board-tab" data-bs-toggle="tab" data-toggle="tab" href="#board" role="tab" aria-controls="board" aria-selected="true">Board of Directors</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" id="executive-tab" data-bs-toggle="tab" data-toggle="tab" href="#executive" role="tab" aria-controls="executive" aria-selected="false">Executive Members</a></li>
           </ul>
         </div>
 
@@ -283,15 +359,89 @@
           <!-- Executive Members (8 slots) -->
           <div class="tab-pane fade" id="executive" role="tabpanel">
             <div class="row">
-              <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executive-01.jpg" alt="Dr. Quarshie" /><h4>Dr. Quarshie (Ghana) </h4><div class="position">Research &amp; Grants Director</div><div class="location">Ghana</div><div class="description">Securing funding, managing research portfolios, and developing sustainable grant strategies for AI education initiatives.</div><ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-              <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executive-02.jpg" alt="Moses" /><h4>Moses Okoth (Kenya)</h4><div class="position">Assistant Research and Grant</div><div class="location">—</div><div class="description">Coordinating schedules, documentation, and stakeholder communications across programs and research activities.</div><ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-              <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executive-03.jpg" alt="Vanessa Willimse" /><h4>Vanessa Willemse (South Africa)</h4><div class="position">Director, International Relations</div><div class="location">—</div><div class="description">Building international partnerships and coordinating cross‑border programs that expand GenAI‑ERA's global footprint.</div><ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-              <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executive-04.jpg" alt="Dr. Saeed" /><h4>Dr. Saeed Maigari (Nigeria)</h4><div class="position">Assistant Director, International Relations</div><div class="location">—</div><div class="description">Supporting international collaborations, MOUs, and exchange activities with universities and NGOs.</div><ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+              <!-- Research & Grants Director -->
+              <div class="col-lg-3 col-md-6 mb-4 executive-member">
+                <div class="team-member-card">
+                  <img src="assets/images/executives/dr-quarshie-ghana.jpg" alt="Dr. Quarshie" />
+                  <h4>Dr. Quarshie (Ghana)</h4>
+                  <div class="position">Research &amp; Grants Director</div>
+                  <div class="location">Ghana</div>
+                  <div class="description">Securing funding, managing research portfolios, and developing sustainable grant strategies for AI education initiatives.</div>
+                  <ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul>
+                </div>
+              </div>
 
-              <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executive-05.jpg" alt="Dorcas" /><h4>Dorcas Adomina (Ghana)</h4><div class="position">Director, Equity &amp; Inclusion</div><div class="location">—</div><div class="description">Embedding equity, accessibility, and inclusion across programs; leading DEI audits and guidelines.</div><ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-              <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executive-06.jpg" alt="Ellen" /><h4>Ellen Kwarteng (Ghana)</h4><div class="position">Program Manager</div><div class="location">—</div><div class="description">Operational oversight of events, webinars, and PD cohorts; monitoring KPIs and reporting.</div><ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-              <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executive-07.jpg" alt="TBD" /><h4>TBD</h4><div class="position">Finance &amp; Operations Lead</div><div class="location">—</div><div class="description">Budgeting, procurement, and operational compliance for multi‑site initiatives and grants.</div><ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
-              <div class="col-lg-3 col-md-6 mb-4 executive-member"><div class="team-member-card"><img src="assets/images/executive-08.jpg" alt="TBD" /><h4>TBD</h4><div class="position">Communications &amp; Partnerships Lead</div><div class="location">—</div><div class="description">Media relations, stakeholder engagement, and partnership pipelines across regions.</div><ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul></div></div>
+              <!-- Deputy Research and Grant: Craig Gibbs replaces Moses Okoth -->
+              <div class="col-lg-3 col-md-6 mb-4 executive-member">
+                <div class="team-member-card">
+                  <img src="assets/images/executives/craig-gibbs-south-africa.jpg" alt="Craig Gibbs" />
+                  <h4>Craig Gibbs (South Africa)</h4>
+                  <div class="position">Deputy Research and Grant</div>
+                  <div class="location">South Africa</div>
+                  <div class="description">Coordinating research activities, documentation, and stakeholder communications; supporting grants strategy and delivery.</div>
+                  <ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul>
+                </div>
+              </div>
+
+              <!-- International Relations Director: Vanessa Willemse -->
+              <div class="col-lg-3 col-md-6 mb-4 executive-member">
+                <div class="team-member-card">
+                  <img src="assets/images/executives/vanessa-willemse-south-africa.jpg" alt="Vanessa Willemse" />
+                  <h4>Vanessa Willemse (South Africa)</h4>
+                  <div class="position">Director, International Relations</div>
+                  <div class="location">South Africa</div>
+                  <div class="description">Building international partnerships and coordinating cross‑border programs that expand GenAI‑ERA's global footprint.</div>
+                  <ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul>
+                </div>
+              </div>
+
+              <!-- Assistant Director, International Relations: Dr. Saeed Maigari -->
+              <div class="col-lg-3 col-md-6 mb-4 executive-member">
+                <div class="team-member-card">
+                  <img src="assets/images/executives/saeed-maigari-nigeria.jpg" alt="Dr. Saeed Maigari" />
+                  <h4>Dr. Saeed Maigari (Nigeria)</h4>
+                  <div class="position">Assistant Director, International Relations</div>
+                  <div class="location">Nigeria</div>
+                  <div class="description">Supporting international collaborations, MOUs, and exchange activities with universities and NGOs.</div>
+                  <ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul>
+                </div>
+              </div>
+
+              <!-- Director, Equity & Inclusion: Dorcas Adomina -->
+              <div class="col-lg-3 col-md-6 mb-4 executive-member">
+                <div class="team-member-card">
+                  <img src="assets/images/executives/dorcas-adomina-ghana.jpg" alt="Dorcas Adomina" />
+                  <h4>Dorcas Adomina (Ghana)</h4>
+                  <div class="position">Director, Equity &amp; Inclusion</div>
+                  <div class="location">Ghana</div>
+                  <div class="description">Embedding equity, accessibility, and inclusion across programs; leading DEI audits and guidelines.</div>
+                  <ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul>
+                </div>
+              </div>
+
+              <!-- Program Manager: Ellen Kwarteng -->
+              <div class="col-lg-3 col-md-6 mb-4 executive-member">
+                <div class="team-member-card">
+                  <img src="assets/images/executives/ellen-kwarteng-ghana.jpg" alt="Ellen Kwarteng" />
+                  <h4>Ellen Kwarteng (Ghana)</h4>
+                  <div class="position">Program Manager</div>
+                  <div class="location">Ghana</div>
+                  <div class="description">Operational oversight of events, webinars, and PD cohorts; monitoring KPIs and reporting.</div>
+                  <ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul>
+                </div>
+              </div>
+
+              <!-- Communications & Partnerships Lead: Sechema Koma -->
+              <div class="col-lg-3 col-md-6 mb-4 executive-member">
+                <div class="team-member-card">
+                  <img src="assets/images/executives/sechema-koma-lesotho.jpg" alt="Sechema Koma" />
+                  <h4>Sechema Koma (Lesotho)</h4>
+                  <div class="position">Communications &amp; Partnerships Lead</div>
+                  <div class="location">Lesotho</div>
+                  <div class="description">Media relations, stakeholder engagement, and partnership pipelines across regions.</div>
+                  <ul class="social-icons"><li><a href="#"><i class="fab fa-linkedin"></i></a></li></ul>
+                </div>
+              </div>
             </div>
             <p class="text-center text-muted">Thanks for your commitments <code>You are making a great impact in Africa</code> You achievements go unnoticed.</p>
           </div>
@@ -339,13 +489,13 @@
         <div class="row"><div class="col-lg-12 text-center"><div class="section-heading"><h6>Schedule</h6><h2>Upcoming GenAI‑ERA Events</h2></div></div></div>
         <div class="row">
           <div class="col-lg-4 col-md-6">
-            <div class="event-card"><img src="assets/images/event-01.jpg" alt="AI Literacy Workshop" /><div class="event-content"><span class="event-category">AI Literacy Workshop</span><h4>A Call For Forum Discussion: GenAI in African Classrooms</h4><p class="mb-2"><strong>Date:</strong> 27 April 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 3 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+            <div class="event-card reveal-left" style="--reveal-delay:.0s"><img src="assets/images/event-01.jpg" alt="AI Literacy Workshop" /><div class="event-content"><span class="event-category">AI Literacy Workshop</span><h4>A Call For Forum Discussion: GenAI in African Classrooms</h4><p class="mb-2"><strong>Date:</strong> 27 April 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 3 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="event-card"><img src="assets/images/event-02.jpg" alt="Digital Pedagogy Seminar" /><div class="event-content"><span class="event-category">Digital Pedagogy Seminar</span><h4>Effective Use of Artificial Intelligence in Education</h4><p class="mb-2"><strong>Date:</strong> 08 Mar 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+            <div class="event-card reveal-up" style="--reveal-delay:.08s"><img src="assets/images/event-02.jpg" alt="Digital Pedagogy Seminar" /><div class="event-content"><span class="event-category">Digital Pedagogy Seminar</span><h4>Effective Use of Artificial Intelligence in Education</h4><p class="mb-2"><strong>Date:</strong> 08 Mar 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 2 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="event-card"><img src="assets/images/event-03.jpg" alt="Research & Innovation Forum" /><div class="event-content"><span class="event-category">Research &amp; Innovation Forum</span><h4>AI in Educational Research</h4><p class="mb-2"><strong>Date:</strong> 12 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 4 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
+            <div class="event-card reveal-right" style="--reveal-delay:.16s"><img src="assets/images/event-03.jpg" alt="Research & Innovation Forum" /><div class="event-content"><span class="event-category">Research &amp; Innovation Forum</span><h4>AI in Educational Research</h4><p class="mb-2"><strong>Date:</strong> 12 Apr 2025 &nbsp; | &nbsp; <strong>Duration:</strong> 4 Hours &nbsp; | &nbsp; <strong>Price:</strong> Free</p><a href="#" class="orange-button btn btn-sm">Details</a></div></div>
           </div>
         </div>
       </div>
@@ -386,12 +536,10 @@
       <div class="container"><div class="col-lg-12"><p>Copyright © 2025 GenAI‑ERA. All rights reserved. &nbsp;&nbsp;&nbsp; Design: <a href="https://templatemo.com" rel="nofollow" target="_blank">TemplateMo</a> Distribution: <a href="https://themewagon.com" rel="nofollow" target="_blank">ThemeWagon</a></p></div></div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/counter.js"></script>
-    <script src="assets/js/custom.js"></script>
+  <!-- Scripts: fixed vendor paths and consolidated app logic -->
+  <script src="vendor/jquerry/jquery.min.js"></script>
+  <script src="vendor/boostrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/main.js"></script>
   </body>
 </html>
