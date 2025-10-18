@@ -87,6 +87,28 @@
       .social-icons a { color: #6b7280; }
       .social-icons a:hover { color: var(--brand-orange); }
 
+      /* Footer social icons: larger and more prominent */
+      .footer-social { gap: 16px; }
+      .footer-social a {
+        font-size: 24px; /* bigger icon */
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--brand-navy);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+      }
+      .footer-social a:hover {
+        background: var(--brand-orange);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      }
+
       /* Event Cards */
       .event-card { background: var(--brand-white); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; margin-bottom: 30px; transition: all 0.3s ease; }
       .event-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
@@ -484,10 +506,15 @@
           <p>
             Copyright © 2025 GenAI‑ERA. All rights reserved.
           </p>
-          <ul class="social-icons" aria-label="GenAI‑ERA social links">
+          <ul class="social-icons footer-social" aria-label="GenAI‑ERA social links">
             <li>
               <a href="https://www.youtube.com/@GenAIERA-g5t" target="_blank" rel="noopener" aria-label="GenAI‑ERA on YouTube">
                 <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/genai-for-educators-and-researchers-in-africa-genai-era/" target="_blank" rel="noopener" aria-label="GenAI‑ERA on LinkedIn">
+                <i class="fab fa-linkedin"></i>
               </a>
             </li>
             <li>
